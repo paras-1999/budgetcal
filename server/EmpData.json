@@ -5,27 +5,27 @@
       "user": "paras123",
       "email": "paras@gmail.com",
       "password": "U2FsdGVkX1915NlrXsV6ALbq17egRSeOp0x5ReDl9dA=",
-      "total": 21000,
+      "total": 100100,
       "passbook": [
         {
-          "title": "Watch",
+          "title": "pen",
           "expense": "100"
         },
         {
+          "title": "car",
+          "expense": "10000"
+        },
+        {
           "title": "phone",
+          "expense": "10000"
+        },
+        {
+          "title": "pen2",
           "expense": "1000"
-        },
-        {
-          "title": "shoes",
-          "expense": "1200"
-        },
-        {
-          "title": "glasses",
-          "expense": "600"
         }
       ],
-      "expense": 2900,
-      "balance": 18100,
+      "expense": 21100,
+      "balance": 79000,
       "id": 1
     },
     {
@@ -51,12 +51,17 @@
     {
       "name": "rahul",
       "user": "rahul123",
-      "email": "rAHUL@GMAIL.COM",
+      "email": "rahul@gmail.com",
       "password": "U2FsdGVkX1/3mhb14FeFAw6T114y4hlFyS2XQpILwBg=",
       "total": 1000000,
-      "passbook": [],
-      "expense": 0,
-      "balance": 1000000,
+      "passbook": [
+        {
+          "title": "CAR",
+          "expense": "10000"
+        }
+      ],
+      "expense": 10000,
+      "balance": 990000,
       "id": 3
     }
   ]

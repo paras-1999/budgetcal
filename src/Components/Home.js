@@ -8,13 +8,12 @@ const client = axios.create({
 export default function Home() {
     const [loger, setLoger] = useState([]);
     const navigate = useNavigate();
-    useEffect(() => {
+    const jupadate = async () => {
         if (sessionStorage.getItem('user') != undefined) {
             let items = JSON.parse(sessionStorage.getItem('user'));
             setLoger(items)
         }
-    }, [])
-    const jupadate = async () => {
+        console.log(loger)
         await client.put(`${loger.id}`, loger)
         navigate('/')
 

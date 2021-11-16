@@ -14,7 +14,8 @@ export default function Subtracter() {
     const update = (event) => {
         event.preventDefault();
         setError({ msg: '', check: false })
-        let temp = [...loger];//creates a separate memory
+        // let temp = [...loger];//creates a separate memory
+        let temp = loger;
         if (parseInt(temp.balance) < parseInt(amount.current.value)) {
             setError({ msg: 'Low Balance', check: true })
 
