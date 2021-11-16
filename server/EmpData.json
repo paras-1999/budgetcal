@@ -1,0 +1,63 @@
+{
+  "EmpData": [
+    {
+      "name": "Paras Saxena",
+      "user": "paras123",
+      "email": "paras@gmail.com",
+      "password": "U2FsdGVkX1915NlrXsV6ALbq17egRSeOp0x5ReDl9dA=",
+      "total": 21000,
+      "passbook": [
+        {
+          "title": "Watch",
+          "expense": "100"
+        },
+        {
+          "title": "phone",
+          "expense": "1000"
+        },
+        {
+          "title": "shoes",
+          "expense": "1200"
+        },
+        {
+          "title": "glasses",
+          "expense": "600"
+        }
+      ],
+      "expense": 2900,
+      "balance": 18100,
+      "id": 1
+    },
+    {
+      "name": "tushar saxena",
+      "user": "tushar123",
+      "email": "tushar@gmail.com",
+      "password": "U2FsdGVkX184FMBhAZ1ihX4S5K9oACI2fs2MURiq9h4=",
+      "total": 100000,
+      "passbook": [
+        {
+          "title": "mobile",
+          "expense": "50000"
+        },
+        {
+          "title": "clothes",
+          "expense": "10000"
+        }
+      ],
+      "expense": 60000,
+      "balance": 40000,
+      "id": 2
+    },
+    {
+      "name": "rahul",
+      "user": "rahul123",
+      "email": "rAHUL@GMAIL.COM",
+      "password": "U2FsdGVkX1/3mhb14FeFAw6T114y4hlFyS2XQpILwBg=",
+      "total": 1000000,
+      "passbook": [],
+      "expense": 0,
+      "balance": 1000000,
+      "id": 3
+    }
+  ]
+}
