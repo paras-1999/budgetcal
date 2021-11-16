@@ -22,10 +22,14 @@
         {
           "title": "pen2",
           "expense": "1000"
+        },
+        {
+          "title": "cake",
+          "expense": "500"
         }
       ],
-      "expense": 21100,
-      "balance": 79000,
+      "expense": 21600,
+      "balance": 78500,
       "id": 1
     },
     {
@@ -63,6 +67,58 @@
       "expense": 10000,
       "balance": 990000,
       "id": 3
+    },
+    {
+      "name": "parasravi",
+      "user": "102263384020948998129",
+      "email": "parasravi123@gmail.com",
+      "password": "test",
+      "total": 24444,
+      "passbook": [
+        {
+          "title": "pen",
+          "expense": "60"
+        },
+        {
+          "title": "xyz",
+          "expense": "10"
+        },
+        {
+          "title": "a1",
+          "expense": "1"
+        },
+        {
+          "title": "a2",
+          "expense": "2"
+        },
+        {
+          "title": "a3",
+          "expense": "4"
+        },
+        {
+          "title": "a4",
+          "expense": "5"
+        }
+      ],
+      "expense": 2194,
+      "balance": 22250,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "PARASH SAXENAKEC STUDENT (IT)",
+      "user": "102531373898614377683",
+      "email": "parash.saxena@krishnacollege.ac.in",
+      "password": "loged",
+      "total": 1000000,
+      "passbook": [
+        {
+          "title": "toffi",
+          "expense": "1"
+        }
+      ],
+      "expense": 1,
+      "balance": 999999
     }
   ]
 }

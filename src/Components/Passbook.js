@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Row, Col } from 'react-bootstrap';
+import { Table, Row, Col, Button } from 'react-bootstrap';
 export default function Passbook() {
     const [loger, setLoger] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem('user') != undefined) {
             let items = JSON.parse(sessionStorage.getItem('user'));
             setLoger(items)
-            console.log('items')
-            // console.log(items)
         }
     }, [])
+    const remover = (i) => {
+        const newTodo = loger.passbook.filter((_, index) => index !== i);
+        let temp = loger;
+        temp.passbook = newTodo
+        setLoger(temp)
+        sessionStorage.setItem('user', JSON.stringify(temp));
+        window.location.reload(false);
+    }
     console.log(loger)
     return (
         <React.Fragment>
@@ -60,16 +66,23 @@ export default function Passbook() {
                                 <th>S. No.</th>
                                 <th>Title</th>
                                 <th>Amount</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {loger && loger.passbook.map(((val, i) =>
-                                <tr key={i} >
-                                    <th>{i + 1}</th>
-                                    <td>{val.title}</td>
-                                    <td>{val.expense}</td>
-                                </tr>
-                            ))}
+                            {console.log(loger.passbook)}
+                            <React.Fragment>
+
+                                {loger && loger.passbook.map(((val, i) =>
+                                    <tr key={i} >
+                                        <th>{i + 1}</th>
+                                        <td>{val.title}</td>
+                                        <td>{val.expense}</td>
+                                        <td> <Button onClick={() => remover(i)}>delete</Button></td>
+                                    </tr>
+                                ))}
+                            </React.Fragment>
+
                         </tbody>
                     </Table>
                 </React.Fragment>

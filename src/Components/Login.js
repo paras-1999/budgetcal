@@ -17,9 +17,23 @@ export default function Login() {
         client.get()
             .then(res => { setEmpList(res.data) })
         sessionStorage.removeItem('user')
+
     }, [])
-    const handleSocialLogin = (user) => {
-        console.log(user);
+    const handleSocialLogin = async (user) => {
+        console.log(user._profile);
+        let e = await empList.find(x => x.email === user._profile.email)
+        let eindex = empList.indexOf(e);
+        if (eindex + 1) {
+            sessionStorage.setItem('user', JSON.stringify(empList[eindex]));
+            navigate('/home/add')
+        }
+        else {
+            let newUser = { id: empList.length + 1, name: user._profile.firstName + user._profile.lastName, user: user._profile.id, email: user._profile.email, password: "loged", total: 0, passbook: [], expense: 0, balance: 0 };
+            client.post('', newUser);
+            sessionStorage.setItem('user', JSON.stringify(newUser));
+            navigate('/home/add')
+        }
+
     };
     const handleSocialLoginFailure = (err) => {
         console.error(err);
@@ -47,6 +61,7 @@ export default function Login() {
 
         }
     }
+
     return (
         <div style={{ height: "100vh", background: "linear-gradient(to right, #414345, #232526)" }}>
             <h1 className='title'>Log in</h1>

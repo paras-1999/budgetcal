@@ -16,7 +16,6 @@ export default function Adder() {
         setLoger(temp);
         sessionStorage.setItem('user', JSON.stringify(temp));
     }
-    console.log(loger)
     return (
         <div>
             <form className="blurform my-5" onSubmit={update} >

@@ -13,7 +13,6 @@ export default function Home() {
             let items = JSON.parse(sessionStorage.getItem('user'));
             setLoger(items)
         }
-        console.log(loger)
         await client.put(`${loger.id}`, loger)
         navigate('/')
 
