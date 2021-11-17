@@ -3,20 +3,23 @@ import { Table, Row, Col, Button } from 'react-bootstrap';
 export default function Passbook() {
     const [loger, setLoger] = useState(null);
     useEffect(() => {
+        xyz();
+    }, [])
+    const xyz = () => {
         if (sessionStorage.getItem('user') != undefined) {
             let items = JSON.parse(sessionStorage.getItem('user'));
             setLoger(items)
         }
-    }, [])
-    const remover = (i) => {
-        const newTodo = loger.passbook.filter((_, index) => index !== i);
-        let temp = loger;
-        temp.passbook = newTodo
-        setLoger(temp)
-        sessionStorage.setItem('user', JSON.stringify(temp));
-        window.location.reload(false);
     }
-    console.log(loger)
+    const remover = (i) => {
+        // console.log(loger)
+        let change = loger.passbook[i].expense;
+        const newTodo = loger.passbook.filter((_, index) => index !== i);
+        setLoger({ ...loger, expense: parseInt(loger.expense) - parseInt(change), passbook: newTodo, balance: parseInt(loger.balance) + parseInt(change) })
+        const obj = { ...loger, expense: parseInt(loger.expense) - parseInt(change), passbook: newTodo, balance: parseInt(loger.balance) + parseInt(change) }
+        sessionStorage.setItem('user', JSON.stringify(obj));
+    }
+    // console.log(loger)
     return (
         <React.Fragment>
             {loger &&
@@ -70,18 +73,18 @@ export default function Passbook() {
                             </tr>
                         </thead>
                         <tbody>
-                            {console.log(loger.passbook)}
-                            <React.Fragment>
+                            {/* {console.log(loger.passbook)} */}
 
-                                {loger && loger.passbook.map(((val, i) =>
-                                    <tr key={i} >
-                                        <th>{i + 1}</th>
-                                        <td>{val.title}</td>
-                                        <td>{val.expense}</td>
-                                        <td> <Button onClick={() => remover(i)}>delete</Button></td>
-                                    </tr>
-                                ))}
-                            </React.Fragment>
+
+                            {loger && loger.passbook.map(((val, i) =>
+                                <tr key={i} >
+                                    <th>{i + 1}</th>
+                                    <td>{val.title}</td>
+                                    <td>{val.expense}</td>
+                                    <td> <Button onClick={() => remover(i)}>delete</Button></td>
+                                </tr>
+                            ))}
+
 
                         </tbody>
                     </Table>

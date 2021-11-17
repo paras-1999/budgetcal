@@ -84,10 +84,6 @@
           "expense": "10"
         },
         {
-          "title": "a1",
-          "expense": "1"
-        },
-        {
           "title": "a2",
           "expense": "2"
         },
@@ -100,8 +96,8 @@
           "expense": "5"
         }
       ],
-      "expense": 2194,
-      "balance": 22250,
+      "expense": 2193,
+      "balance": 22251,
       "id": 4
     },
     {
@@ -113,12 +109,24 @@
       "total": 1000000,
       "passbook": [
         {
-          "title": "toffi",
-          "expense": "1"
+          "title": "car",
+          "expense": "100000"
+        },
+        {
+          "title": "pen",
+          "expense": "100"
+        },
+        {
+          "title": "fish",
+          "expense": "1000"
+        },
+        {
+          "title": "color",
+          "expense": "10000"
         }
       ],
-      "expense": 1,
-      "balance": 999999
+      "expense": 111100,
+      "balance": 888900
     }
   ]
 }
