@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Row, Col, Button } from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Table, Row, Col, Button, Modal, Form } from 'react-bootstrap';
 export default function Passbook() {
     const [loger, setLoger] = useState(null);
+    const [id, setId] = useState(null);
+    const [modalShow, setModalShow] = React.useState(false);
+    const title = useRef(null);
+    const amount = useRef(null);
     useEffect(() => {
         xyz();
     }, [])
@@ -19,11 +23,61 @@ export default function Passbook() {
         const obj = { ...loger, expense: parseInt(loger.expense) - parseInt(change), passbook: newTodo, balance: parseInt(loger.balance) + parseInt(change) }
         sessionStorage.setItem('user', JSON.stringify(obj));
     }
+    const updater = () => {
+        if (id) {
+            let temp = loger.passbook;
+            temp[id].expense = amount.current.value;
+            temp[id].title = title.current.value;
+            setLoger({
+                ...loger,
+                expense: (parseInt(loger.expense) - parseInt(loger.passbook[id].expense)) + parseInt(amount.current.value),
+                balance: (parseInt(loger.balance) + parseInt(loger.passbook[id].expense)) - amount.current.value,
+                passbook: temp
+            })
+            sessionStorage.setItem('user', JSON.stringify(loger));
+            setModalShow(false);
+
+        }
+
+    }
     // console.log(loger)
     return (
         <React.Fragment>
+
             {loger &&
                 <React.Fragment>
+                    <Modal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        centered
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                upadte expense
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form.Floating className="mb-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="title"
+                                    ref={title}
+                                />
+                                <label >title</label>
+                            </Form.Floating >
+                            <Form.Floating className="mb-3">
+                                <Form.Control
+                                    type="number"
+                                    placeholder="money"
+                                    ref={amount}
+                                />
+                                <label>Amount</label>
+                            </Form.Floating>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant='dark' onClick={() => { updater() }}>update</Button>
+                        </Modal.Footer>
+                    </Modal>
                     <Row className="text-center container mx-auto mt-5">
                         <Col xs={6} md={4}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" className="bi bi-currency-exchange" viewBox="0 0 16 16">
@@ -81,7 +135,8 @@ export default function Passbook() {
                                     <th>{i + 1}</th>
                                     <td>{val.title}</td>
                                     <td>{val.expense}</td>
-                                    <td> <Button onClick={() => remover(i)}>delete</Button></td>
+                                    <td className="text-center"> <Button className="mx-3" onClick={() => remover(i)}>delete</Button>
+                                        <Button variant='success' onClick={() => { setModalShow(true); setId(i) }}>upadte</Button></td>
                                 </tr>
                             ))}
 
